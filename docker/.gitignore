@@ -2,3 +2,6 @@ import/1m/**
 import/large/**
 import/xlarge/**
 import/100k/**
+conf/observability/neo4j-logs/*
+!conf/observability/neo4j-logs/
+.env

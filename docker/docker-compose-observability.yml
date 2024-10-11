@@ -1,0 +1,72 @@
+
+services:
+  # override the server-logs file to use by Neo4j
+  neo4j:
+    environment:
+      NEO4J_db_logs_query_annotation__data__format: FLAT_JSON
+    volumes:
+      - "./conf/observability/neo4j-server-logs.xml:/var/lib/neo4j/conf/server-logs.xml"
+      - "./conf/observability/neo4j-logs:/logs"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"  # Prometheus web interface
+    volumes:
+      - ./conf/observability/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    depends_on:
+      - neo4j
+      - node-exporter
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000" 
+    environment:
+      - GF_SECURITY_ADMIN_USER=neo4j-tdg
+      - GF_SECURITY_ADMIN_PASSWORD=password
+      - GF_USERS_ALLOW_SIGN_UP=false
+    depends_on:
+      - prometheus
+      - loki
+    volumes:
+      - ./conf/observability/grafana/provisioning:/etc/grafana/provisioning
+
+  loki:
+    image: grafana/loki:latest
+    container_name: loki
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./conf/observability/loki.yml:/mnt/config/loki-config.yaml
+    command: -config.file=/mnt/config/loki-config.yaml
+    depends_on:
+      - neo4j
+
+  node-exporter:
+    image: prom/node-exporter
+    container_name: node_exporter
+    ports:
+      - "9100:9100"
+
+  promtail:
+    image: grafana/promtail:latest
+    container_name: promtail
+    volumes:
+      - ./conf/observability/neo4j-logs:/logs
+      - ./conf/observability/promtail.yml:/etc/promtail/config.yaml
+    command: -config.file=/etc/promtail/config.yaml 
+    depends_on:
+      - loki 
+    labels:
+      - "promtail-job=neo4j-logs"
