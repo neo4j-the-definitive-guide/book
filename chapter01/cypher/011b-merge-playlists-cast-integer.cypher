@@ -8,4 +8,4 @@ MERGE (user:User {id: row.user_id})
 MERGE (track:Track {id: row.track_id})
 
 MERGE (user)-[:OWNS]->(playlist)
-MERGE (playlist)-[:HAS_TRACK {position: row.track_index}]->(track)
+MERGE (playlist)-[:HAS_TRACK {position: toInteger(row.track_index)}]->(track)
