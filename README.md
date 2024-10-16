@@ -22,8 +22,8 @@ Docker Setup
 **Clone the repository**
 
 ```bash
-git clone https://github.com/your-repo/neo4j-definitive-guide.git
-cd neo4j-definitive-guide/docker
+git clone https://github.com/neo4j-the-definitive-guide/book.git
+cd book/docker
 ```
 
 **Run Neo4j in Docker**
