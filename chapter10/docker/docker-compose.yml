@@ -1,0 +1,92 @@
+# common environment settings reused across all servers
+x-neo4j-config-common: &neo4j-config-common
+  NEO4J_AUTH: neo4j/password
+  # NEO4J_server_cluster_system__database__mode: PRIMARY
+  NEO4J_initial_server_mode__constraint: NONE
+  # NEO4J_initial_dbms_default__primaries__count: 3
+  NEO4J_ACCEPT_LICENSE_AGREEMENT: "yes"
+  NEO4J_dbms_cluster_discovery_resolver__type: LIST
+  NEO4J_dbms_cluster_discovery_version: V2_ONLY
+  NEO4J_dbms_cluster_discovery_v2_endpoints: primary1:6000,primary2:6000,primary3:6000
+  NEO4J_server_default__listen__address: 0.0.0.0
+  NEO4J_server_bolt_advertised__address: :7687
+  NEO4J_dbms_databases_seed__from__uri__providers: FileSeedProvider,CloudSeedProvider
+  NEO4J_dbms_routing_enabled: true
+  NEO4J_dbms_routing_default__router: SERVER
+  NEO4J_server_routing_listen__address: 0.0.0.0:7688
+  NEO4J_server_routing_advertised__address: :7688
+  NEO4J_server_cluster_listen__address: :6000
+  NEO4J_server_cluster_raft_listen__address: :7000
+
+services:
+  primary1:
+    image: ${NEO4J_IMAGE_URL}
+    container_name: neo4j-primary-1
+    ports:
+      - 17474:7474
+      - 17473:7473
+      - 16362:6362
+      - 17687:7687
+    environment:
+      <<: *neo4j-config-common
+      NEO4J_server_default__advertised__address: primary1
+      NEO4J_server_cluster_advertised__address: primary1:6000
+      NEO4J_server_cluster_raft_advertised__address: primary1:7000 
+      
+  primary2:
+    image: ${NEO4J_IMAGE_URL}
+    container_name: neo4j-primary-2
+    ports:
+      - 27474:7474
+      - 27473:7473
+      - 26362:6362
+      - 27687:7687
+    environment:
+      <<: *neo4j-config-common
+      NEO4J_server_default__advertised__address: primary2
+      NEO4J_server_cluster_advertised__address: primary2:6000
+      NEO4J_server_cluster_raft_advertised__address: primary2:7000
+
+  primary3:
+    image: ${NEO4J_IMAGE_URL}
+    container_name: neo4j-primary-3
+    ports:
+      - 37474:7474
+      - 37473:7473
+      - 36362:6362
+      - 37687:7687
+    environment:
+      <<: *neo4j-config-common
+      NEO4J_server_default__advertised__address: primary3
+      NEO4J_server_cluster_advertised__address: primary3:6000
+      NEO4J_server_cluster_raft_advertised__address: primary3:7000
+  
+  # secondary1:
+  #   image: ${NEO4J_IMAGE_URL}
+  #   ports:
+  #     - 47474:7474
+  #     - 47473:7473
+  #     - 46362:6362
+  #     - 47687:7687
+  #   environment:
+  #     <<: *neo4j-config-common
+  #     NEO4J_server_cluster_system__database__mode: SECONDARY
+  #     NEO4J_initial_server_mode__constraint: SECONDARY
+  #     NEO4J_server_default__advertised__address: secondary1
+  #     NEO4J_server_cluster_advertised__address: secondary1:6000
+  #     NEO4J_server_cluster_raft_advertised__address: secondary1:7000
+  
+  # secondary2:
+  #   image: ${NEO4J_IMAGE_URL}
+  #   ports:
+  #     - 57474:7474
+  #     - 57473:7473
+  #     - 56362:6362
+  #     - 57687:7687
+  #   environment:
+  #     <<: *neo4j-config-common
+  #     NEO4J_server_cluster_system__database__mode: SECONDARY
+  #     NEO4J_initial_server_mode__constraint: SECONDARY
+  #     NEO4J_server_default__advertised__address: secondary2
+  #     NEO4J_server_cluster_advertised__address: secondary2:6000
+  #     NEO4J_server_cluster_raft_advertised__address: secondary2:7000
