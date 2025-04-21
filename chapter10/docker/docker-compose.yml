@@ -61,32 +61,32 @@ services:
       NEO4J_server_cluster_advertised__address: primary3:6000
       NEO4J_server_cluster_raft_advertised__address: primary3:7000
   
-  # secondary1:
-  #   image: ${NEO4J_IMAGE_URL}
-  #   ports:
-  #     - 47474:7474
-  #     - 47473:7473
-  #     - 46362:6362
-  #     - 47687:7687
-  #   environment:
-  #     <<: *neo4j-config-common
-  #     NEO4J_server_cluster_system__database__mode: SECONDARY
-  #     NEO4J_initial_server_mode__constraint: SECONDARY
-  #     NEO4J_server_default__advertised__address: secondary1
-  #     NEO4J_server_cluster_advertised__address: secondary1:6000
-  #     NEO4J_server_cluster_raft_advertised__address: secondary1:7000
+  secondary1:
+    image: ${NEO4J_IMAGE_URL}
+    ports:
+      - 47474:7474
+      - 47473:7473
+      - 46362:6362
+      - 47687:7687
+    environment:
+      <<: *neo4j-config-common
+      NEO4J_server_cluster_system__database__mode: SECONDARY
+      NEO4J_initial_server_mode__constraint: SECONDARY
+      NEO4J_server_default__advertised__address: secondary1
+      NEO4J_server_cluster_advertised__address: secondary1:6000
+      NEO4J_server_cluster_raft_advertised__address: secondary1:7000
   
-  # secondary2:
-  #   image: ${NEO4J_IMAGE_URL}
-  #   ports:
-  #     - 57474:7474
-  #     - 57473:7473
-  #     - 56362:6362
-  #     - 57687:7687
-  #   environment:
-  #     <<: *neo4j-config-common
-  #     NEO4J_server_cluster_system__database__mode: SECONDARY
-  #     NEO4J_initial_server_mode__constraint: SECONDARY
-  #     NEO4J_server_default__advertised__address: secondary2
-  #     NEO4J_server_cluster_advertised__address: secondary2:6000
-  #     NEO4J_server_cluster_raft_advertised__address: secondary2:7000
+  secondary2:
+    image: ${NEO4J_IMAGE_URL}
+    ports:
+      - 57474:7474
+      - 57473:7473
+      - 56362:6362
+      - 57687:7687
+    environment:
+      <<: *neo4j-config-common
+      NEO4J_server_cluster_system__database__mode: SECONDARY
+      NEO4J_initial_server_mode__constraint: SECONDARY
+      NEO4J_server_default__advertised__address: secondary2
+      NEO4J_server_cluster_advertised__address: secondary2:6000
+      NEO4J_server_cluster_raft_advertised__address: secondary2:7000
