@@ -38,4 +38,4 @@ AND NOT recommendation IN popularTracks
 // Score them by how frequently they appear
 RETURN recommendation.id as recommendedTrackId, recommendation.name AS recommendedTrack, otherPlaylist.name AS fromPlaylist, count(*) AS score
 ORDER BY score DESC
-LIMIT 5
+LIMIT 10
