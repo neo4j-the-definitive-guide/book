@@ -1,4 +1,3 @@
-//003-single-similar-rel.cypher
 MATCH path=(p:Playlist)-[r1:HAS_TRACK]->(track)<-[r2:HAS_TRACK]-(other:Playlist)
 WITH p AS playlistLeft, other AS playlistRight,
      collect({track: track, positionLeft: r1.position, positionRight: r2.position}) AS commonTracks
