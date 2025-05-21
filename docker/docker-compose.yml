@@ -1,6 +1,6 @@
 services:
   neo4j:
-    image: neo4j:5.24.1-enterprise
+    image: neo4j:5.26-enterprise
     container_name: neo4j-tdg
     ports:
       - 7474:7474
