@@ -1,0 +1,1 @@
+CREATE INDEX track_duration FOR (n:Track) ON (n.duration)

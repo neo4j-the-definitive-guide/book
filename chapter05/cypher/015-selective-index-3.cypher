@@ -1,0 +1,1 @@
+CREATE INDEX playlist_name_followers_range FOR (n:Playlist) ON (n.name,n.followers)

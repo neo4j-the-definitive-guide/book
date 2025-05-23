@@ -1,0 +1,1 @@
+CREATE INDEX playlist_name_range FOR (n:Playlist) ON (n.name)

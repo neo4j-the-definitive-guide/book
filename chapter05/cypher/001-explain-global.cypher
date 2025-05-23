@@ -1,0 +1,2 @@
+EXPLAIN MATCH (n)
+RETURN n
