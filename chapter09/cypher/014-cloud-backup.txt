@@ -1,0 +1,1 @@
+bin/neo4j-admin database backup --to-path=s3://myBucket/myDirectory/ mydatabase

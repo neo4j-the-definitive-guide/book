@@ -1,0 +1,3 @@
+CREATE COMPOSITE DATABASE composed WAIT;
+CREATE ALIAS composed.songs FOR DATABASE songs;
+CREATE ALIAS composed.erfacts FOR DATABASE erfacts;
