@@ -1,0 +1,1 @@
+CALL db.index.fulltext.queryNodes("Test", "sample");

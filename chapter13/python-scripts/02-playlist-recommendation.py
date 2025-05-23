@@ -18,11 +18,10 @@ neo4j_driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD)
 openai = OpenAI(api_key=OPENAI_API_KEY)
 
 
-USER_QUESTION = """Recommend me playlists of songs that have been influenced by reggae and rock"""
+USER_QUESTION = """Recommend me a playlist of jazz music with a chic style."""
 
 PROMPT = """
-You will receive a summary of a community of playlist, some playlists and some sample tracks of them.
-
+You will receive a summary of a community of playlists, some playlists and some sample tracks of them.
 For each playlist, create a "here is a recommended playlist" answer to the user and explain why based on the songs.
 
 Question : {user_question}

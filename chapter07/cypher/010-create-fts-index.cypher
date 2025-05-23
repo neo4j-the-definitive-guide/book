@@ -1,0 +1,3 @@
+CREATE FULLTEXT INDEX Track
+FOR (n:Track)
+ON EACH [n.name]

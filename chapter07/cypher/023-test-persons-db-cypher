@@ -1,0 +1,9 @@
+// First run this command
+CREATE DATABASE persons WAIT;
+
+// Then this command
+:use persons ;
+
+// Then those statements
+CREATE (:Person {name: "John Doe", email: "john.doe@example.com"});
+CREATE (:Person {name: "Bob Green", email: "bob.green@example.com"});

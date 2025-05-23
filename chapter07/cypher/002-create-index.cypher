@@ -1,0 +1,1 @@
+CREATE INDEX track_name FOR (n:Track) ON n.name
