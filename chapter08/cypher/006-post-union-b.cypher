@@ -1,0 +1,11 @@
+MATCH (a:Artist)
+CALL (a) {
+MATCH (a)<-[:ARTIST]-(t)
+WHERE t.duration > 2000000
+RETURN COUNT(a) AS artistCount
+UNION ALL
+MATCH (a)<-[:ARTIST]-(t)
+WHERE COUNT { (t)-[:ON_PLAYLIST]->(:Playlist) } > 500
+RETURN COUNT(a) as artistCount
+}
+RETURN SUM(artistCount)
