@@ -2,7 +2,7 @@
 
 **WARNING:** Chapter 8 uses two databases. 
 You'll start with the large dataset for the sections on subqueries and fine-grained relationship types. 
-Before you move on to Modeling resolved entities, you'll need to switch databases (see the section below).
+Before you move on to Modeling resolved entities, you'll need to switch databases (see [the section below](https://github.com/neo4j-the-definitive-guide/book/blob/main/chapter08/README.md#modeling-resolved-entities)).
 
 To get started with this chapter, you need to import the dataset into a fresh Neo4j database. You can either:
 
