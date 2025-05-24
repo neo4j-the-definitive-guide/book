@@ -1,8 +1,8 @@
 MATCH (primary:Artist {id:"3qm84nBOXUEQ2vnTfUTTFC"})
 WITH primary 
 MERGE (fused:Artist {id:"fused-3qm84nBOXUEQ2vnTfUTTFC"})
-SET fused = properties(primary), fused.id="fused-3qm84nBOXUEQ2vnTfUTTFC",
-fused.aliases=[] 
+SET fused.name = primary.name, fused.uri = primary.uri,
+fused.aliases=[]
 SET fused:$(labels(primary)) 
 WITH fused
 MATCH (fact:Artist)
