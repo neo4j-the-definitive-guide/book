@@ -54,7 +54,7 @@ This section requires a different database. Follow these steps:
 
 #### Step 1: Download the Backup
 ```bash
-wget https://downloads.graphaware.com/neo4j-the-definitive-guide/neo4j-tdg-backup-20250523.backup
+wget https://downloads.graphaware.com/neo4j-the-definitive-guide/neo4j-tdg-fused.backup
 ```
 
 #### Step 2: Restore the Backup
