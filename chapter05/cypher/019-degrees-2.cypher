@@ -1,3 +1,4 @@
+PROFILE
 MATCH (t:Track)
   WHERE COUNT {(t)-[:ON_PLAYLIST]->()} > 2500
 RETURN t.name
