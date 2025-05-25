@@ -1,5 +1,7 @@
 # Neo4j - The Definitive Guide: Companion Repository
 
+![cover](./figures/cover.png)
+
 Welcome to the companion repository for the book **"Neo4j - The Definitive Guide"** published by O'Reilly. This repository contains the code examples and Docker configuration to help you follow along with the chapters of the book. The examples provided cover Cypher queries and Python code to demonstrate various concepts discussed in the book.
 
 ## Repository Structure
