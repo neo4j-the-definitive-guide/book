@@ -3,7 +3,7 @@
 ![cover](./figures/cover.png)
 
 Welcome to the companion repository for the book **"Neo4j - The Definitive Guide"** published by O'Reilly. This repository contains the code examples and Docker configuration to help you follow along with the chapters of the book. The examples provided cover Cypher queries and Python code to demonstrate various concepts discussed in the book.
-
+The book uses the most recently released LTS version of Neo4j, currently 5.26. If you're using an earlier version and some queries do not work, upgrade your version to the latest.
 ## Repository Structure
 
 The repository is structured into multiple directories, each of which corresponds to a chapter of the book. There is also a Docker configuration provided for easy setup of Neo4j for use with the examples.
