@@ -1,8 +1,7 @@
 //Stage 4
 :auto
 MATCH ()-[r:ON_PLAYLIST]-()
-CALL {
-WITH r
-DELETE r
+CALL(r) {
+  DELETE r
 }
 IN TRANSACTIONS
