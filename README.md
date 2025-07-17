@@ -63,3 +63,6 @@ pip install neo4j
 
 ### Contributing
 Contributions are welcome! If you find any issues, feel free to create a pull request.
+
+## Acknowledgements
+The dataset used in these exercises is taken from the Spotify Dataset 2023 on Kaggle, provided by Tony Gordon Jr. https://www.kaggle.com/datasets/tonygordonjr/spotify-dataset-2023
