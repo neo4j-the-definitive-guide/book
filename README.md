@@ -64,5 +64,8 @@ pip install neo4j
 ### Contributing
 Contributions are welcome! If you find any issues, feel free to create a pull request.
 
+### Playlist
+Enjoy our playlist which features all songs mentioned in the book, in order of appearance: https://open.spotify.com/playlist/0om9yh7c0dHLCqfJcqshBn?si=0aba8dd096254708
+
 ## Acknowledgements
 The dataset used in these exercises is taken from the Spotify Dataset 2023 on Kaggle, provided by Tony Gordon Jr. https://www.kaggle.com/datasets/tonygordonjr/spotify-dataset-2023
